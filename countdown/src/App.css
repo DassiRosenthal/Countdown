@@ -133,8 +133,9 @@ html {
 }
 
 .cant-wait {
-  font-family: cursive;
-  font-weight: 800;
+  /* font-family: cursive; */
+  font: italic small-caps bold inherit cursive;
+  /* font-weight: 800; */
   color: rgb(7, 106, 7);
   text-decoration: wavy;
   text-shadow: -2px -2px 0 #ffffff, 2px -2px 0 #ffffff, -2px 2px 0 #ffffff, 2px 2px 0 #ffffff;

@@ -57,12 +57,12 @@ export default function Countdown(props) {
 
             <div>{images1.map((img, index) =>
                 <img src={img} alt='background'
-                    className={`image-1 ${page === index ? 'background-image' : page - 1 === index ? 'leave' : 'hide'}`}
+                    className={`image-1 ${page === index ? 'background-image' : (page - 1 === index || (index === images1.length - 1 && page === 0)) ? 'leave' : 'hide'}`}
                 />
             )}</div>
             <div> {images2.map((img, index) =>
                 <img src={img} alt='background'
-                    className={`image-2 ${page === index ? 'background-image' : page - 1 === index ? 'leave' : 'hide'}`}
+                    className={`image-2 ${page === index ? 'background-image' : (page - 1 === index || (index === images1.length - 1 && page === 0)) ? 'leave' : 'hide'}`}
                 />
             )}</div>
         </div>
