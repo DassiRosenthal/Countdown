@@ -38,7 +38,7 @@ export default function Countdown(props) {
     useEffect(() => {
         if (!displayCover) {
             setTimeout(() => {
-                if (timeDisplay < 5) {
+                if (timeDisplay < 4) {
                     setTimeDisplay(timeDisplay + 1)
                 }
                 else {
@@ -51,30 +51,30 @@ export default function Countdown(props) {
 
     return (
         <div className={`outer-div`}>
-            {displayCover ? <div><div className='mazel-tov'>MAZEL TOV!</div></div>
-                : <><div className='time-left-div'>
-                    {timeDisplay === 1 ?
-                        <div>{Math.round(timeLeft / 86400000).toLocaleString()} days</div>
-                        : timeDisplay === 2 ?
-                            <div>{Math.round(timeLeft / 3600000).toLocaleString()} hours</div>
-                            : timeDisplay === 3 ?
-                                <div>{Math.round(timeLeft / 60000).toLocaleString()} minutes</div>
-                                : timeDisplay === 4 ?
-                                    <div>{Math.round(timeLeft / 1000).toLocaleString()} seconds</div>
-                                    : <div className='cant-wait'>Can't wait!</div>}
+            {displayCover && <div><div className='mazel-tov'>MAZEL TOV!</div></div>}
+            <><div className='time-left-div'>
+                {timeDisplay === 1 ?
+                    <div>{Math.round(timeLeft / 86400000).toLocaleString()} days</div>
+                    : timeDisplay === 2 ?
+                        <div>{Math.round(timeLeft / 3600000).toLocaleString()} hours</div>
+                        : timeDisplay === 3 ?
+                            <div>{Math.round(timeLeft / 60000).toLocaleString()} minutes</div>
+                            : timeDisplay === 4 ?
+                                <div>{Math.round(timeLeft / 1000).toLocaleString()} seconds</div>
+                                : <div className='cant-wait'>Can't wait!</div>}
 
-                </div>
+            </div>
 
-                    <div>{images1.map((img, index) =>
-                        <img src={img} alt='background'
-                            className={`image-1 ${page === index ? 'background-image' : (page - 1 === index || (index === images1.length - 1 && page === 0)) ? 'leave' : 'hide'}`}
-                        />
-                    )}</div>
-                    <div> {images2.map((img, index) =>
-                        <img src={img} alt='background' key={index}
-                            className={`image-2 ${page === index ? 'background-image' : (page - 1 === index || (index === images1.length - 1 && page === 0)) ? 'leave' : 'hide'}`}
-                        />
-                    )}</div></>}
+                <div>{images1.map((img, index) =>
+                    <img src={img} alt='background'
+                        className={`image-1 ${page === index ? 'background-image' : (page - 1 === index || (index === images1.length - 1 && page === 0)) ? 'leave' : 'hide'}`}
+                    />
+                )}</div>
+                <div> {images2.map((img, index) =>
+                    <img src={img} alt='background' key={index}
+                        className={`image-2 ${page === index ? 'background-image' : (page - 1 === index || (index === images1.length - 1 && page === 0)) ? 'leave' : 'hide'}`}
+                    />
+                )}</div></>
         </div>
     )
 }
