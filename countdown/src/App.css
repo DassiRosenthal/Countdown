@@ -125,11 +125,18 @@ html {
 }
 
 .mazel-tov {
-  font-size: 24rem;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  background-color: gold;
+  background-image: url('../public/background.png');
+  background-size: contain;
+  font-size: 17rem;
   font-family: 'Poppins';
   font-weight: 800;
   color: rgb(0, 72, 255);
   text-shadow: -3px -3px 0 #ffffff, 3px -3px 0 #ffffff, -3px 3px 0 #ffffff, 3px 3px 0 #ffffff;
+  justify-content: center;
 }
 
 .cant-wait {
@@ -160,6 +167,19 @@ html {
   .time-left-div,
   .mazel-tov {
     font-size: 7rem;
+    background: none;
+  }
+
+  .mazel-tov::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    z-index: -1;
+    background: url('../public/background.png') 0 0 repeat;
+    transform: rotate(30deg);
   }
 
 }
