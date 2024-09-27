@@ -31,14 +31,14 @@ export default function Countdown(props) {
                 else {
                     setPage(0)
                 }
-            }, 7000)
+            }, 4000)
         }
     }, [page, displayCover, images1.length])
 
     useEffect(() => {
         if (!displayCover) {
             setTimeout(() => {
-                if (timeDisplay < 4) {
+                if (timeDisplay < 5) {
                     setTimeDisplay(timeDisplay + 1)
                 }
                 else {
@@ -54,14 +54,16 @@ export default function Countdown(props) {
             {displayCover && <div><div className='mazel-tov'>MAZEL TOV!</div></div>}
             <><div className='time-left-div'>
                 {timeDisplay === 1 ?
-                    <div>{Math.round(timeLeft / 86400000).toLocaleString()} days</div>
-                    : timeDisplay === 2 ?
-                        <div>{Math.round(timeLeft / 3600000).toLocaleString()} hours</div>
+                    <div>{(Math.round((timeLeft / (86400000 * 7)) * 100) / 100).toLocaleString()} weeks</div>
+                    : timeDisplay === 2 ? <div>{Math.round(timeLeft / 86400000).toLocaleString()} days</div>
                         : timeDisplay === 3 ?
-                            <div>{Math.round(timeLeft / 60000).toLocaleString()} minutes</div>
+                            <div>{Math.round(timeLeft / 3600000).toLocaleString()} hours</div>
                             : timeDisplay === 4 ?
+                                <div>{Math.round(timeLeft / 60000).toLocaleString()} minutes</div>
+                                :
                                 <div>{Math.round(timeLeft / 1000).toLocaleString()} seconds</div>
-                                : <div className='cant-wait'>Can't wait!</div>}
+                    //: <div className='cant-wait'>Can't wait!</div>
+                }
 
             </div>
 
