@@ -18,7 +18,7 @@ export default function Countdown(props) {
 
     useEffect(() => {
         setTimeout(() => {
-            setTimeLeft(new Date('December 5, 2024 06:00:00') - new Date())
+            setTimeLeft(new Date('December 5, 2024 18:45:00') - new Date());
         }, 1000)
     }, [timeLeft])
 
@@ -71,7 +71,7 @@ export default function Countdown(props) {
                         />
                     )}</div>
                     <div> {images2.map((img, index) =>
-                        <img src={img} alt='background'
+                        <img src={img} alt='background' key={index}
                             className={`image-2 ${page === index ? 'background-image' : (page - 1 === index || (index === images1.length - 1 && page === 0)) ? 'leave' : 'hide'}`}
                         />
                     )}</div></>}
