@@ -13,7 +13,7 @@ export default function Countdown(props) {
     useEffect(() => {
         setTimeout(() => {
             setDisplayCover(false);
-        }, 1000)
+        }, 2000)
     }, [])
 
     useEffect(() => {
@@ -31,7 +31,7 @@ export default function Countdown(props) {
                 else {
                     setPage(0)
                 }
-            }, 6000)
+            }, 7000)
         }
     }, [page, displayCover, images1.length])
 
